@@ -1,8 +1,10 @@
 import React, {Component} from 'react'
+
 export default  class UpdateBeer extends Component {
     constructor(props){
         super(props)
         this.state = {
+            beers: this.props.beers,
             name: this.props.beer.name,
             brewery: this.props.beer.brewery,
             abv: this.props.beer.abv,
@@ -34,8 +36,7 @@ export default  class UpdateBeer extends Component {
             })
             let data = await response.json()
             console.log(data);
-            const foundBeer = this.state.beers.findIndex (
-              foundItem => (foundItem._id === beer._id)
+            const foundBeer = this.state.beers.findIndex(foundItem =>(foundItem._id === beer._id)
             )
             const copyBeers = [...this.props.beers]
             copyBeers[foundBeer].name = data.name
@@ -45,6 +46,7 @@ export default  class UpdateBeer extends Component {
             copyBeers[foundBeer].url = data.url
             copyBeers[foundBeer].description = data.description
             this.props.handleUpdateBeer(copyBeers)
+            this.props.toggleShowForm()
         } catch (e) {
             console.error('Error', e);
         }
@@ -55,11 +57,11 @@ export default  class UpdateBeer extends Component {
                 <form onSubmit={(event) => {
                   event.preventDefault()
                   this.handleSubmit(this.props.beer)}}>
-                    <input type="text" id="name" placeholder="beer name" onChange={this.handleChange}/>
-                    <input type="text" id="brewery" placeholder="brewery" onChange={this.handleChange}/>
-                    <input type="text" id="abv" placeholder="ABV" onChange={this.handleChange}/>
-                    <input type="text" id="url" placeholder="brewery link" onChange={this.handleChange}/>
-                    <input type="text" id="img" placeholder="image" onChange={this.handleChange}/>
+                    <input type="text" id="name" placeholder="beer name" onChange={this.handleChange} value={this.state.name}/>
+                    <input type="text" id="brewery" placeholder="brewery" onChange={this.handleChange} value={this.state.brewery}/>
+                    <input type="text" id="abv" placeholder="ABV" onChange={this.handleChange} value={this.state.abv}/>
+                    <input type="text" id="url" placeholder="brewery link" onChange={this.handleChange} value={this.state.url}/>
+                    <input type="text" id="img" placeholder="image" onChange={this.handleChange} value={this.state.img}/>
                     <textarea type="text" id="description" placeholder="description" onChange={this.handleChange}/>
                     <input type="submit" value="submit"/>
                 </form>
