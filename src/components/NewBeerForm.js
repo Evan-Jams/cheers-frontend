@@ -52,9 +52,11 @@ class NewBeer extends Component {
     }
     render(){
         return(
-            <div>
+            <div >
                 <form onSubmit={this.handleSubmit}>
+                <div className="form-group">
                     <input type="text" id="name" placeholder="beer name" onChange={this.handleChange}/>
+                    </div>
                     <input type="text" id="brewery" placeholder="brewery" onChange={this.handleChange}/>
                     <input type="text" id="abv" placeholder="ABV" onChange={this.handleChange}/>
                     <input type="text" id="url" placeholder="brewery link" onChange={this.handleChange}/>

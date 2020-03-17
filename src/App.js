@@ -78,14 +78,14 @@ export default class App extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className='container'>
         Hello from App
         <NewBeer baseURL={baseURL} handleAddBeer={this.handleAddBeer}/>
-        <ul>
+        <div>
         {
           this.state.beers.map((beer, i) => {
             return(
-              <li
+              <div className="card"
                 key={i}
                 onMouseOver={() => {
                   this.getBeer(beer)
@@ -96,11 +96,11 @@ export default class App extends React.Component {
               beer={beer}
               deleteBeer={this.deleteBeer}
               baseURL={baseURL}
-              handleUpdateBeer={this.handleUpdateBeer}/></li>
+              handleUpdateBeer={this.handleUpdateBeer}/></div>
             )
           })
         }
-        </ul>
+        </div>
       </div>
     )
   }
