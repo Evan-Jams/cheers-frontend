@@ -19,6 +19,7 @@ export default class App extends React.Component {
       beers: []
     }
     this.handleAddBeer = this.handleAddBeer.bind(this)
+    this.getBeers = this.getBeers.bind(this)
   }
   handleAddBeer(beer){
       const copyBeers = [beer, ...this.state.beers]
@@ -26,20 +27,36 @@ export default class App extends React.Component {
           beers: copyBeers
       })
   }
+  componentDidMount() {
+    this.getBeers()
+  }
+  async getBeers() {
+    try {
+      let response = await fetch(`${baseURL}/beers`)
+      let data = await response.json()
+      this.setState({
+        beers: data
+      })
+
+    } catch (e) {
+      console.error(e);
+    }
+  }
 
   render() {
     return(
       <div>
         Hello from App
         <NewBeer baseURL={baseURL} handleAddBeer={this.handleAddBeer}/>
+        <ul>
         {
           this.state.beers.map((beer, i) => {
             return(
-              <Beer key={i} beer={beer}/>
+              <li key={i}><Beer key={i} beer={beer}/></li>
             )
           })
         }
-
+        </ul>
       </div>
     )
   }

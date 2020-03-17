@@ -21,7 +21,7 @@ class NewBeer extends Component {
     async handleSubmit(event){
         event.preventDefault()
         try {
-            let response = await fetch(this.props.baseURL + '/beers/', {
+            let response = await fetch(this.props.baseURL + '/beers', {
                 method: 'POST',
                 body: JSON.stringify({
                     name: this.state.name,
@@ -36,6 +36,7 @@ class NewBeer extends Component {
                 }
             })
             let data = await response.json()
+            console.log(data);
             this.props.handleAddBeer(data)
             this.setState({
                 name: '',
@@ -52,13 +53,13 @@ class NewBeer extends Component {
     render(){
         return(
             <div>
-                <form handleSubmit={this.handleSubmit}>
-                    <input type="text" name="name" placeholder="beer name" onChange={this.handleChange}/>
-                    <input type="text" name="brewery" placeholder="brewery" onChange={this.handleChange}/>
-                    <input type="text" name="abv" placeholder="ABV" onChange={this.handleChange}/>
-                    <input type="text" name="url" placeholder="brewery link" onChange={this.handleChange}/>
-                    <input type="text" name="img" placeholder="image" onChange={this.handleChange}/>
-                    <textarea type="text" name="description" placeholder="description" onChange={this.handleChange}/>
+                <form onSubmit={this.handleSubmit}>
+                    <input type="text" id="name" placeholder="beer name" onChange={this.handleChange}/>
+                    <input type="text" id="brewery" placeholder="brewery" onChange={this.handleChange}/>
+                    <input type="text" id="abv" placeholder="ABV" onChange={this.handleChange}/>
+                    <input type="text" id="url" placeholder="brewery link" onChange={this.handleChange}/>
+                    <input type="text" id="img" placeholder="image" onChange={this.handleChange}/>
+                    <textarea type="text" id="description" placeholder="description" onChange={this.handleChange}/>
                     <input type="submit" value="submit"/>
                 </form>
             </div>
