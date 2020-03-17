@@ -9,7 +9,7 @@ let baseURL = ''
 if (process.env.NODE_ENV === 'development') {
   baseURL = 'http://localhost:3003'
 } else {
-  baseURL = 'https://cheers-backend.herokuapp.com/'
+  baseURL = 'https://cheers-backend.herokuapp.com'
 }
 
 
