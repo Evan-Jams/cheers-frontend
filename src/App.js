@@ -1,5 +1,6 @@
 import React from 'react';
 import NewBeer from './components/NewBeerForm.js'
+import Beer from './components/Beer.js'
 
 
 let baseURL = ''
@@ -31,6 +32,14 @@ export default class App extends React.Component {
       <div>
         Hello from App
         <NewBeer baseURL={baseURL} handleAddBeer={this.handleAddBeer}/>
+        {
+          this.state.beers.map((beer, i) => {
+            return(
+              <Beer key={i} beer={beer}/>
+            )
+          })
+        }
+
       </div>
     )
   }
