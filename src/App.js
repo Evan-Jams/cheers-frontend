@@ -1,7 +1,6 @@
 import React from 'react';
 import NewBeer from './components/NewBeerForm.js'
 import Beer from './components/Beer.js'
-import UpdateBeer from './components/UpdateBeer.js'
 
 
 let baseURL = ''
