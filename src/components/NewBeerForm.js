@@ -55,13 +55,13 @@ class NewBeer extends Component {
             <div >
                 <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
-                    <input type="text" id="name" placeholder="beer name" onChange={this.handleChange}/>
+                    <input type="text" id="name" placeholder="beer name" onChange={this.handleChange} value={this.state.name}/>
                     </div>
-                    <input type="text" id="brewery" placeholder="brewery" onChange={this.handleChange}/>
-                    <input type="text" id="abv" placeholder="ABV" onChange={this.handleChange}/>
-                    <input type="text" id="url" placeholder="brewery link" onChange={this.handleChange}/>
-                    <input type="text" id="img" placeholder="image" onChange={this.handleChange}/>
-                    <textarea type="text" id="description" placeholder="description" onChange={this.handleChange}/>
+                    <input type="text" id="brewery" placeholder="brewery" onChange={this.handleChange} value={this.state.brewery}/>
+                    <input type="text" id="abv" placeholder="ABV" onChange={this.handleChange} value={this.state.abv}/>
+                    <input type="text" id="url" placeholder="brewery link" onChange={this.handleChange} value={this.state.url}/>
+                    <input type="text" id="img" placeholder="image" onChange={this.handleChange} value={this.state.img}/>
+                    <textarea type="text" id="description" placeholder="description" onChange={this.handleChange} value={this.state.description}/>
                     <input type="submit" value="submit"/>
                 </form>
             </div>
