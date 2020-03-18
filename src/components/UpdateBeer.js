@@ -62,7 +62,7 @@ export default  class UpdateBeer extends Component {
                     <input type="text" id="abv" placeholder="ABV" onChange={this.handleChange} value={this.state.abv}/>
                     <input type="text" id="url" placeholder="brewery link" onChange={this.handleChange} value={this.state.url}/>
                     <input type="text" id="img" placeholder="image" onChange={this.handleChange} value={this.state.img}/>
-                    <textarea type="text" id="description" placeholder="description" onChange={this.handleChange}/>
+                    <textarea type="text" id="description" placeholder="description" onChange={this.handleChange} value={this.state.description}/>
                     <input type="submit" value="submit"/>
                 </form>
             </div>

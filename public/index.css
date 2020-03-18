@@ -1,0 +1,73 @@
+* {
+    /* border: 1px solid black; */
+}
+
+.card {
+  width: 300px;
+}
+header {
+  background-image: url('https://image.shutterstock.com/image-photo/hackensack-nj-usa-march-4-260nw-476952658.jpg');
+  background-size:cover;
+  background-repeat: no-repeat;
+  height: 150px;
+  box-shadow: 0 10px 10px black;
+}
+
+
+#title {
+  background-color: black;
+  margin-bottom: 0;
+  height: 100px;
+
+
+  color:gold;
+  font-family: 'Herr Von Muellerhoff', cursive;
+  text-align: center;
+  font-weight: bolder;
+  letter-spacing: 7px;
+  font-size: 6em;
+
+  padding-top: 10px;
+
+  text-shadow: 2px 2px 10px #868684, 2px -2px 10px #868684, -2px 2px 10px #868684, -2px -2px 10px #868684;
+}
+
+body {
+  background-image: url('https://i2.wp.com/www.beerscents.com/wp-content/uploads/2018/10/wood-bg.jpg?fit=1600%2C1066&ssl=1');
+  /* background-repeat: no-repeat;
+  background-size: cover; */
+  overflow: scroll;
+  background-size: contain;
+}
+
+.photo {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 250px;
+    overflow: hidden;
+}
+
+.beer-photo {
+    height: 100%;
+}
+#abv {
+
+  font-size: 10px;
+}
+.button-group {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+}
+button {
+  width: 45%;
+}
+.show-link {
+  width: 100%;
+  text-align: center;
+  display: block;
+  color: rgb(0,123,255);
+  cursor: pointer;
+}
