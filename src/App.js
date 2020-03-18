@@ -1,6 +1,7 @@
 import React from 'react';
 import NewBeer from './components/NewBeerForm.js'
 import Beer from './components/Beer.js'
+import Header from './components/Header.js'
 
 
 let baseURL = ''
@@ -84,19 +85,22 @@ export default class App extends React.Component {
 
   render() {
     return(
+      <>
+      <Header />
       <div className='container'>
-      <button onClick={()=> this.toggleNewForm()}>Add New Beer</button>
+
+      <button id="add-button" className="btn btn-warning" onClick={()=> this.toggleNewForm()}>Add New Beer</button>
       {
           this.state.newBeer
-          ? <NewBeer baseURL={baseURL} handleAddBeer={this.handleAddBeer}/>
+          ? <NewBeer toggleNewForm={this.toggleNewForm} baseURL={baseURL} handleAddBeer={this.handleAddBeer}/>
           : null
       }
-        <div>
+        <div className="card-list">
         {
           this.state.beers.map((beer, i) => {
             return(
-              <div className="card"
-                key={i}
+              <div className=""
+                key={beer._id}
                 onMouseOver={() => {
                   this.getBeer(beer)
                 }}
@@ -112,6 +116,7 @@ export default class App extends React.Component {
         }
         </div>
       </div>
+      </>
     )
   }
 }

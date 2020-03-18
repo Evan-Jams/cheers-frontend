@@ -21,11 +21,11 @@ class Beer extends React.Component {
   render() {
     return(
       <div className="card">
-
+      
             <img className="card-img-top" src={this.props.beer.img}></img>
           <div className="card-body">
           <div className="card-header">
-          <h3>{this.props.beer.name} <span id="abv">(ABV: {this.props.beer.abv} %)</span></h3>
+          <h5>{this.props.beer.name} <span id="abv">(ABV: {this.props.beer.abv} %)</span></h5>
 
           <h6 ><a href={this.props.beer.url}>{this.props.beer.brewery} brewery</a></h6>
 
@@ -44,8 +44,8 @@ class Beer extends React.Component {
                     <p>{this.props.beer.description}</p>
                   </div>
                   <div className="button-group">
-                    <button onClick={()=> this.toggleShowForm()}>Edit</button>
-                    <button onClick={()=> this.props.deleteBeer(this.props.beer._id)}>Delete</button>
+                    <button className="btn btn-primary" onClick={()=> this.toggleShowForm()}>Edit</button>
+                    <button className="btn btn-danger" onClick={()=> this.props.deleteBeer(this.props.beer._id)}>Delete</button>
                   </div>
               </div>
 
