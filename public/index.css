@@ -88,3 +88,6 @@ button {
 .card-img-top {
   height: 350px;
 }
+.container {
+  text-align: center;
+}
