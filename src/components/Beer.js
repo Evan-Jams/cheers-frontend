@@ -6,23 +6,52 @@ class Beer extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            showForm: false
+            showForm: false,
+            showmore: false
         }
         this.toggleShowForm = this.toggleShowForm.bind(this)
+        this.toggleShowMore = this.toggleShowMore.bind(this)
     }
     toggleShowForm(){
         this.setState({showForm: !this.state.showForm})
     }
+    toggleShowMore(){
+      this.setState({showmore: !this.state.showmore})
+    }
   render() {
     return(
-      <div>
-          <img src={this.props.beer.img}></img>
-          <h1>{this.props.beer.name}</h1>
-          <h4>{this.props.beer.abv}</h4>
-          <h2><a href={this.props.beer.url}>{this.props.beer.brewery}</a></h2>
-          <p>{this.props.beer.description}</p>
-          <button onClick={()=> this.toggleShowForm()}>Edit</button>
-          <button onClick={()=> this.props.deleteBeer(this.props.beer._id)}>Delete</button>
+      <div className="card">
+
+            <img className="card-img-top" src={this.props.beer.img}></img>
+          <div className="card-body">
+          <div className="card-header">
+          <h3>{this.props.beer.name} <span id="abv">(ABV: {this.props.beer.abv} %)</span></h3>
+
+          <h6 ><a href={this.props.beer.url}>{this.props.beer.brewery} brewery</a></h6>
+
+          </div>
+            <span onClick={()=>this.toggleShowMore()}className="show-link">
+            {
+              this.state.showmore ? 'Show Less' : 'Show More'
+            }
+              </span>
+
+            {
+              this.state.showmore
+
+              ? <div>
+                  <div className="show-more">
+                    <p>{this.props.beer.description}</p>
+                  </div>
+                  <div className="button-group">
+                    <button onClick={()=> this.toggleShowForm()}>Edit</button>
+                    <button onClick={()=> this.props.deleteBeer(this.props.beer._id)}>Delete</button>
+                  </div>
+              </div>
+
+              : null
+            }
+
           {
               this.state.showForm
               ? <UpdateBeer baseURL={this.props.baseURL} handleUpdateBeer={this.props.handleUpdateBeer} beer={this.props.beer}
@@ -30,7 +59,7 @@ class Beer extends React.Component {
               toggleShowForm={this.toggleShowForm} />
               : null
           }
-
+          </div>
       </div>
     )
   }

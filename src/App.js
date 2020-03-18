@@ -18,14 +18,15 @@ export default class App extends React.Component {
     this.state = {
       beers: [],
       beer: null,
-      isEdit: false
+      isEdit: false,
+      newBeer: false
     }
     this.handleAddBeer = this.handleAddBeer.bind(this)
     this.getBeers = this.getBeers.bind(this)
     this.getBeer = this.getBeer.bind(this)
     this.deleteBeer = this.deleteBeer.bind(this)
     this.handleUpdateBeer = this.handleUpdateBeer.bind(this)
-
+    this.toggleNewForm = this.toggleNewForm.bind(this)
   }
   componentDidMount() {
     this.getBeers()
@@ -46,6 +47,11 @@ export default class App extends React.Component {
     this.setState ({
       beer: beer
     })
+  }
+  toggleNewForm(){
+      this.setState({
+          newBeer: !this.state.newBeer
+      })
   }
   async getBeers() {
     try {
@@ -78,14 +84,18 @@ export default class App extends React.Component {
 
   render() {
     return(
-      <div>
-        Hello from App
-        <NewBeer baseURL={baseURL} handleAddBeer={this.handleAddBeer}/>
-        <ul>
+      <div className='container'>
+      <button onClick={()=> this.toggleNewForm()}>Add New Beer</button>
+      {
+          this.state.newBeer
+          ? <NewBeer baseURL={baseURL} handleAddBeer={this.handleAddBeer}/>
+          : null
+      }
+        <div>
         {
           this.state.beers.map((beer, i) => {
             return(
-              <li
+              <div className="card"
                 key={i}
                 onMouseOver={() => {
                   this.getBeer(beer)
@@ -96,11 +106,11 @@ export default class App extends React.Component {
               beer={beer}
               deleteBeer={this.deleteBeer}
               baseURL={baseURL}
-              handleUpdateBeer={this.handleUpdateBeer}/></li>
+              handleUpdateBeer={this.handleUpdateBeer}/></div>
             )
           })
         }
-        </ul>
+        </div>
       </div>
     )
   }
