@@ -26,7 +26,7 @@ class NewBeer extends Component {
                 body: JSON.stringify({
                     name: this.state.name,
                     brewery: this.state.brewery,
-                    abv: this.state.abv,
+                    abv: this.state.abv || 'N/A',
                     img: this.state.img,
                     url: this.state.url,
                     description: this.state.description
@@ -38,6 +38,7 @@ class NewBeer extends Component {
             let data = await response.json()
             console.log(data);
             this.props.handleAddBeer(data)
+            this.props.toggleNewForm()
             this.setState({
                 name: '',
                 brewery: '',
@@ -46,6 +47,7 @@ class NewBeer extends Component {
                 url: '',
                 description: ''
             })
+
         } catch (e) {
             console.error('Error', e);
         }
@@ -54,15 +56,20 @@ class NewBeer extends Component {
         return(
             <div >
                 <form onSubmit={this.handleSubmit}>
-                <div className="form-group">
-                    <input type="text" id="name" placeholder="beer name" onChange={this.handleChange} value={this.state.name}/>
+                  <div className="form-group">
+                    <div className="form-row">
+                        <input className="form-control" type="text" id="name" placeholder="beer name" onChange={this.handleChange} value={this.state.name}/>
+                        <input className="form-control" type="text" id="abv" placeholder="ABV" onChange={this.handleChange} value={this.state.abv}/>
+
                     </div>
-                    <input type="text" id="brewery" placeholder="brewery" onChange={this.handleChange} value={this.state.brewery}/>
-                    <input type="text" id="abv" placeholder="ABV" onChange={this.handleChange} value={this.state.abv}/>
-                    <input type="text" id="url" placeholder="brewery link" onChange={this.handleChange} value={this.state.url}/>
-                    <input type="text" id="img" placeholder="image" onChange={this.handleChange} value={this.state.img}/>
-                    <textarea type="text" id="description" placeholder="description" onChange={this.handleChange} value={this.state.description}/>
-                    <input type="submit" value="submit"/>
+                    <div className="form-row">
+                        <input className="form-control" type="text" id="brewery" placeholder="brewery" onChange={this.handleChange} value={this.state.brewery}/>
+                        <input className="form-control" type="text" id="url" placeholder="brewery link" onChange={this.handleChange} value={this.state.url}/>
+                    </div>
+                        <input className="form-control" type="text" id="img" placeholder="image" onChange={this.handleChange} value={this.state.img}/>
+                        <textarea className="form-control" type="text" id="description" placeholder="description" onChange={this.handleChange} value={this.state.description}/>
+                        <input type="submit" value="submit" className="btn btn-primary"/>
+                  </div>
                 </form>
             </div>
         )
