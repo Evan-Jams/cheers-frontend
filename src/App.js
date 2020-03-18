@@ -85,7 +85,7 @@ export default class App extends React.Component {
   render() {
     return(
       <div className='container'>
-      <button id="add-button" onClick={()=> this.toggleNewForm()}>Add New Beer</button>
+      <button id="add-button" className="btn btn-warning" onClick={()=> this.toggleNewForm()}>Add New Beer</button>
       {
           this.state.newBeer
           ? <NewBeer toggleNewForm={this.toggleNewForm} baseURL={baseURL} handleAddBeer={this.handleAddBeer}/>

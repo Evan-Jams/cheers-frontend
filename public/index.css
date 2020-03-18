@@ -2,15 +2,31 @@
     /* border: 1px solid black; */
 }
 
-.card {
-  width: 300px;
-}
+
 header {
-  background-image: url('https://image.shutterstock.com/image-photo/hackensack-nj-usa-march-4-260nw-476952658.jpg');
-  background-size:cover;
-  background-repeat: no-repeat;
+  /* background-image: url('https://image.shutterstock.com/image-photo/hackensack-nj-usa-march-4-260nw-476952658.jpg');
+  background-size: cover;
+  background-repeat: no-repeat; */
+  /* display: flex;
+  justify-content: space-between; */
   height: 150px;
   box-shadow: 0 10px 10px black;
+}
+
+.header-image {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    background: black;
+}
+
+.header-image > img {
+    width: 400px;
+}
+
+#right-image {
+    transform: scaleX(-1)
 }
 
 
@@ -34,13 +50,16 @@ header {
 
 body {
   background-image: url('https://i2.wp.com/www.beerscents.com/wp-content/uploads/2018/10/wood-bg.jpg?fit=1600%2C1066&ssl=1');
-  /* background-repeat: no-repeat;
-  background-size: cover; */
+  /* background-repeat: no-repeat; */
+  background-size: cover;
   overflow: scroll;
   background-size: contain;
+  width: 100vw;
 }
 
-
+#root {
+    margin: auto;
+}
 
 
 #abv {
@@ -53,9 +72,15 @@ body {
   display: flex;
   justify-content: space-around;
 }
+
 button {
   width: 45%;
 }
+
+.btn {
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, .5);
+}
+
 .show-link {
   width: 100%;
   text-align: center;
@@ -64,13 +89,34 @@ button {
   cursor: pointer;
 }
 
+
+.form-group {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    width: 45%;
+}
+
 .form-control {
-  margin: 10px 0;
-  width: 40%
+    margin: 10px 0;
+    width: 45%;
+    height: 40px;
+}
+
+#update-form > .form-control {
+    width: 100%;
 }
 
 .card {
   margin-bottom: 10px;
+  width: 300px;
+  box-shadow: 8px 8px 10px rgba(0, 0, 0, .8);
 }
 .card-list {
   display: flex;
@@ -90,4 +136,5 @@ button {
 }
 .container {
   text-align: center;
+  margin: auto;
 }
