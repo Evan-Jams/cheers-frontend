@@ -40,17 +40,9 @@ body {
   background-size: contain;
 }
 
-.photo {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    height: 250px;
-    overflow: hidden;
-}
 
-.beer-photo {
-    height: 100%;
-}
+
+
 #abv {
 
   font-size: 10px;
@@ -92,4 +84,7 @@ button {
 #add-button {
   width: 200px;
   margin: 15px auto;
+}
+.card-img-top {
+  height: 350px;
 }
