@@ -85,18 +85,18 @@ export default class App extends React.Component {
   render() {
     return(
       <div className='container'>
-      <button onClick={()=> this.toggleNewForm()}>Add New Beer</button>
+      <button id="add-button" onClick={()=> this.toggleNewForm()}>Add New Beer</button>
       {
           this.state.newBeer
-          ? <NewBeer baseURL={baseURL} handleAddBeer={this.handleAddBeer}/>
+          ? <NewBeer toggleNewForm={this.toggleNewForm} baseURL={baseURL} handleAddBeer={this.handleAddBeer}/>
           : null
       }
-        <div>
+        <div className="card-list">
         {
           this.state.beers.map((beer, i) => {
             return(
-              <div className="card"
-                key={i}
+              <div className=""
+                key={beer._id}
                 onMouseOver={() => {
                   this.getBeer(beer)
                 }}

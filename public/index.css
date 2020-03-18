@@ -71,3 +71,25 @@ button {
   color: rgb(0,123,255);
   cursor: pointer;
 }
+
+.form-control {
+  margin: 10px 0;
+  width: 40%
+}
+
+.card {
+  margin-bottom: 10px;
+}
+.card-list {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+#add-button {
+  width: 200px;
+  margin: 15px auto;
+}
