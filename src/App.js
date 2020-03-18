@@ -1,6 +1,7 @@
 import React from 'react';
 import NewBeer from './components/NewBeerForm.js'
 import Beer from './components/Beer.js'
+import Header from './components/Header.js'
 
 
 let baseURL = ''
@@ -84,7 +85,10 @@ export default class App extends React.Component {
 
   render() {
     return(
+      <>
+      <Header />
       <div className='container'>
+
       <button id="add-button" className="btn btn-warning" onClick={()=> this.toggleNewForm()}>Add New Beer</button>
       {
           this.state.newBeer
@@ -112,6 +116,7 @@ export default class App extends React.Component {
         }
         </div>
       </div>
+      </>
     )
   }
 }

@@ -4,25 +4,28 @@
 
 
 header {
-  /* background-image: url('https://image.shutterstock.com/image-photo/hackensack-nj-usa-march-4-260nw-476952658.jpg');
-  background-size: cover;
-  background-repeat: no-repeat; */
-  /* display: flex;
-  justify-content: space-between; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
   height: 150px;
   box-shadow: 0 10px 10px black;
+  background: rgba(0,0,0,.8);
+
 }
 
 .header-image {
+
     height: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-direction: row;
-    background: black;
+    align-items: center;
+
 }
 
 .header-image > img {
-    width: 400px;
+    height: 100%;
 }
 
 #right-image {
@@ -31,9 +34,11 @@ header {
 
 
 #title {
-  background-color: black;
+  background-color: rgba(0,0,0,0);
+
   margin-bottom: 0;
   height: 100px;
+  min-width: 33%;
 
 
   color:gold;
@@ -41,7 +46,7 @@ header {
   text-align: center;
   font-weight: bolder;
   letter-spacing: 7px;
-  font-size: 6em;
+  font-size: 5em;
 
   padding-top: 10px;
 
@@ -136,5 +141,19 @@ button {
 }
 .container {
   text-align: center;
+  width: 100%;
   margin: auto;
+}
+
+@media (max-width: 780px){
+  .header-image > img {
+    display: none;
+    }
+  h1 {
+      margin: auto;
+    }
+    header {
+
+      height: 110px;
+    }
 }
