@@ -27,7 +27,7 @@ class NewBeer extends Component {
                     name: this.state.name,
                     brewery: this.state.brewery,
                     abv: this.state.abv || 'N/A',
-                    img: this.state.img,
+                    img: this.state.img || 'https://st4.depositphotos.com/7597710/19871/i/450/depositphotos_198717686-stock-photo-poltava-ukraine-march-22th-2018.jpg',
                     url: this.state.url,
                     description: this.state.description
                 }),
@@ -58,12 +58,12 @@ class NewBeer extends Component {
                 <form onSubmit={this.handleSubmit}>
                   <div className="form-group">
                     <div className="form-row">
-                        <input className="form-control" type="text" id="name" placeholder="beer name" onChange={this.handleChange} value={this.state.name}/>
+                        <input className="form-control" type="text" id="name" placeholder="beer name" onChange={this.handleChange} value={this.state.name} required/>
                         <input className="form-control" type="text" id="abv" placeholder="ABV" onChange={this.handleChange} value={this.state.abv}/>
 
                     </div>
                     <div className="form-row">
-                        <input className="form-control" type="text" id="brewery" placeholder="brewery" onChange={this.handleChange} value={this.state.brewery}/>
+                        <input className="form-control" type="text" id="brewery" placeholder="brewery" onChange={this.handleChange} value={this.state.brewery} required />
                         <input className="form-control" type="text" id="url" placeholder="brewery link" onChange={this.handleChange} value={this.state.url}/>
                     </div>
                         <input className="form-control" type="text" id="img" placeholder="image" onChange={this.handleChange} value={this.state.img}/>

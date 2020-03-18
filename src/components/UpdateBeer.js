@@ -57,8 +57,8 @@ export default  class UpdateBeer extends Component {
                 <form id="update-form" className="form-group" onSubmit={(event) => {
                   event.preventDefault()
                   this.handleSubmit(this.props.beer)}}>
-                    <input className="form-control" type="text" id="name" placeholder="beer name" onChange={this.handleChange} value={this.state.name}/>
-                    <input className="form-control" type="text" id="brewery" placeholder="brewery" onChange={this.handleChange} value={this.state.brewery}/>
+                    <input className="form-control" type="text" id="name" placeholder="beer name" onChange={this.handleChange} value={this.state.name} required/>
+                    <input className="form-control" type="text" id="brewery" placeholder="brewery" onChange={this.handleChange} value={this.state.brewery} required/>
                     <input className="form-control" type="text" id="abv" placeholder="ABV" onChange={this.handleChange} value={this.state.abv}/>
                     <input className="form-control" type="text" id="url" placeholder="brewery link" onChange={this.handleChange} value={this.state.url}/>
                     <input className="form-control" type="text" id="img" placeholder="image" onChange={this.handleChange} value={this.state.img}/>
