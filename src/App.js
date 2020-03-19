@@ -4,8 +4,7 @@ import Beer from './components/Beer.js'
 import Header from './components/Header.js'
 
 
-let baseURL = process.env.NODE_ENV 
-
+let baseURL = process.env.NODE_ENV
 if (process.env.NODE_ENV === 'development') {
   baseURL = 'http://localhost:3003'
 } else {
@@ -22,49 +21,15 @@ export default class App extends React.Component {
       isEdit: false,
       newBeer: false
     }
-    this.handleAddBeer = this.handleAddBeer.bind(this)
-    this.getBeers = this.getBeers.bind(this)
-    this.getBeer = this.getBeer.bind(this)
     this.deleteBeer = this.deleteBeer.bind(this)
+    this.getBeer = this.getBeer.bind(this)
+    this.getBeers = this.getBeers.bind(this)
+    this.handleAddBeer = this.handleAddBeer.bind(this)
     this.handleUpdateBeer = this.handleUpdateBeer.bind(this)
     this.toggleNewForm = this.toggleNewForm.bind(this)
   }
   componentDidMount() {
     this.getBeers()
-  }
-  handleAddBeer(beer){
-      const copyBeers = [beer, ...this.state.beers]
-      this.setState({
-          beers: copyBeers
-      })
-  }
-  handleUpdateBeer(copyBeers){
-    this.setState({
-      beers: copyBeers,
-      isEdit: false
-    })
-  }
-  getBeer(beer) {
-    this.setState ({
-      beer: beer
-    })
-  }
-  toggleNewForm(){
-      this.setState({
-          newBeer: !this.state.newBeer
-      })
-  }
-  async getBeers() {
-    try {
-      let response = await fetch(`${baseURL}/beers`)
-      let data = await response.json()
-      this.setState({
-        beers: data
-      })
-
-    } catch (e) {
-      console.error(e);
-    }
   }
 
   async deleteBeer(id){
@@ -82,6 +47,46 @@ export default class App extends React.Component {
           console.error(e);
       }
   }
+
+  getBeer(beer) {
+    this.setState ({
+      beer: beer
+    })
+  }
+
+  async getBeers() {
+    try {
+      let response = await fetch(`${baseURL}/beers`)
+      let data = await response.json()
+      this.setState({
+        beers: data
+      })
+
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  handleAddBeer(beer){
+      const copyBeers = [beer, ...this.state.beers]
+      this.setState({
+          beers: copyBeers
+      })
+  }
+  
+  handleUpdateBeer(copyBeers){
+    this.setState({
+      beers: copyBeers,
+      isEdit: false
+    })
+  }
+
+  toggleNewForm(){
+      this.setState({
+          newBeer: !this.state.newBeer
+      })
+  }
+
 
   render() {
     return(
