@@ -4,7 +4,7 @@ import Beer from './components/Beer.js'
 import Header from './components/Header.js'
 
 
-let baseURL = ''
+let baseURL = process.env.NODE_ENV 
 
 if (process.env.NODE_ENV === 'development') {
   baseURL = 'http://localhost:3003'
