@@ -9,7 +9,7 @@ class NewBeer extends Component {
             brewery: '',
             abv: '',
             img: '',
-            url: '',
+            url: 'http://',
             description: ''
         }
         this.handleChange = this.handleChange.bind(this)
@@ -64,7 +64,8 @@ class NewBeer extends Component {
                     </div>
                     <div className="form-row">
                         <input className="form-control" type="text" id="brewery" placeholder="brewery" onChange={this.handleChange} value={this.state.brewery} required />
-                        <input className="form-control" type="text" id="url" placeholder="brewery link" onChange={this.handleChange} value={this.state.url}/>
+                        <input className="form-control" type="text" id="url" placeholder="brewery link" onChange={this.handleChange} value={this.state.url}
+                        pattern="http[s]*://.+"/>
                     </div>
                         <input className="form-control" type="text" id="img" placeholder="image" onChange={this.handleChange} value={this.state.img}/>
                         <textarea className="form-control" type="text" id="description" placeholder="description" onChange={this.handleChange} value={this.state.description}/>
