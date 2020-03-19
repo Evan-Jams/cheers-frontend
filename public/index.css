@@ -14,6 +14,37 @@ header {
 
 }
 
+input[type=range] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 95%; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 30px;
+  width: 16px;
+  border-radius: 3px;
+  background: rgb(255, 185, 45);
+  cursor: pointer;
+  margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: grey;
+  border-radius: 1.3px;
+
+}
+
 .header-image {
 
     height: 100%;
@@ -37,9 +68,9 @@ header {
 
 #abv-slider {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    width: 40%;
+    width: 45%;
     margin-top: 20px;
     text-align: center;
     background-color: rgba(0,0,0,.8);
@@ -48,7 +79,7 @@ header {
 
 #abv-slider > label {
     color: white;
-    margin: 10px 10px 10px 0;
+    margin: 10px;
 }
 
 #abv-slider > input {
@@ -57,14 +88,8 @@ header {
 
 #abv-filter {
     color: white;
-    margin-left: 10px;
+    margin: 0 10px;
 }
-
-input::-webkit-slider-runnable-track {
-    /* border-radius: 10px; */
-}
-
-
 
 
 #right-image {
@@ -74,12 +99,9 @@ input::-webkit-slider-runnable-track {
 
 #title {
   background-color: rgba(0,0,0,0);
-
   margin-bottom: 0;
   height: 100px;
   min-width: 33%;
-
-
   color:gold;
   font-family: 'Herr Von Muellerhoff', cursive;
   text-align: center;
