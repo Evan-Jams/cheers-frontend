@@ -59,7 +59,7 @@ class NewBeer extends Component {
                   <div className="form-group">
                     <div className="form-row">
                         <input className="form-control" type="text" id="name" placeholder="beer name" onChange={this.handleChange} value={this.state.name} required/>
-                        <input className="form-control" type="text" id="abv" placeholder="ABV" onChange={this.handleChange} value={this.state.abv}/>
+                        <input className="form-control" type="text" id="abv" placeholder="ABV" onChange={this.handleChange} value={this.state.abv} required/>
 
                     </div>
                     <div className="form-row">

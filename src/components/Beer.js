@@ -22,7 +22,7 @@ class Beer extends React.Component {
     return(
       <div>
       {
-        parseInt(this.props.abvFilter) > parseInt(this.props.beer.abv)
+        parseInt(this.props.abvFilter) >= parseInt(this.props.beer.abv)
         ?
       <div className="card">
 

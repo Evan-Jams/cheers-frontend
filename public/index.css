@@ -36,18 +36,35 @@ header {
 }
 
 #abv-slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
     margin-top: 20px;
     text-align: center;
+    background-color: rgba(0,0,0,.8);
+    border-radius: 8px;
 }
 
 #abv-slider > label {
     color: white;
-    margin-right: 10px;
+    margin: 10px 10px 10px 0;
 }
 
 #abv-slider > input {
-    width: 500px;
+    width: 75%;
 }
+
+#abv-filter {
+    color: white;
+    margin-left: 10px;
+}
+
+input::-webkit-slider-runnable-track {
+    /* border-radius: 10px; */
+}
+
+
 
 
 #right-image {

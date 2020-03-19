@@ -21,7 +21,7 @@ export default class App extends React.Component {
       beer: null,
       isEdit: false,
       newBeer: false,
-      abvFilter: 5
+      abvFilter: 15
     }
     this.handleAddBeer = this.handleAddBeer.bind(this)
     this.getBeers = this.getBeers.bind(this)
@@ -98,9 +98,9 @@ export default class App extends React.Component {
       <>
       <Header />
       <div className="d-flex justify-content-center my-4">
-          <form className="range-field w-75" id="abv-slider" >
+          <form className="range-field" id="abv-slider" >
               <label htmlFor="abvFilter">ABV</label>
-              <input id="slider11" className="border-0" name="abvFilter" type="range" min="0" max="10" step="0.1" ref="slider" value={this.state.abvFilter} onChange={this.handleSlider}/><span id="abv-filter">{this.state.abvFilter}</span>
+              <input id="slider11" className="border-0" name="abvFilter" type="range" min="0" max="15" step="0.1" ref="slider" value={this.state.abvFilter} onChange={this.handleSlider}/><span id="abv-filter">{this.state.abvFilter}</span>
           </form>
           <span className="font-weight-bold text-primary ml-2 mt-1 valueSpan"></span>
         </div>
