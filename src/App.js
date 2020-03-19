@@ -87,6 +87,13 @@ export default class App extends React.Component {
     return(
       <>
       <Header />
+      <div className="d-flex justify-content-center my-4">
+          <form className="range-field w-75" id="abv-slider" >
+              <label htmlFor="abv-filter">ABV</label>
+              <input id="slider11" className="border-0" name="abv-filter" type="range" min="0" max="10" />
+          </form>
+          <span className="font-weight-bold text-primary ml-2 mt-1 valueSpan"></span>
+        </div>
       <div className='container'>
 
       <button id="add-button" className="btn btn-warning" onClick={()=> this.toggleNewForm()}>Add New Beer</button>
