@@ -20,14 +20,19 @@ class Beer extends React.Component {
     }
   render() {
     return(
+      <div>
+      {
+        parseInt(this.props.abvFilter) >= parseInt(this.props.beer.abv)
+        ?
       <div className="card">
-      
+
+
             <img className="card-img-top" src={this.props.beer.img}></img>
           <div className="card-body">
           <div className="card-header">
           <h5>{this.props.beer.name} <span id="abv">(ABV: {this.props.beer.abv} %)</span></h5>
 
-          <h6 ><a href={this.props.beer.url}>{this.props.beer.brewery} brewery</a></h6>
+          <h6 ><a href={this.props.beer.url} target="_blank" rel="noopener noreferrer">{this.props.beer.brewery} brewery</a></h6>
 
           </div>
             <span onClick={()=>this.toggleShowMore()}className="show-link">
@@ -61,6 +66,10 @@ class Beer extends React.Component {
           }
           </div>
       </div>
+      : null
+    }
+      </div>
+
     )
   }
 }
