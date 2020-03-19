@@ -116,10 +116,9 @@ input[type=range]::-webkit-slider-runnable-track {
 
 body {
   background-image: url('https://i2.wp.com/www.beerscents.com/wp-content/uploads/2018/10/wood-bg.jpg?fit=1600%2C1066&ssl=1');
-  /* background-repeat: no-repeat; */
+  background-repeat: no-repeat;
   background-size: cover;
   overflow: scroll;
-  background-size: contain;
   width: 100vw;
 }
 
