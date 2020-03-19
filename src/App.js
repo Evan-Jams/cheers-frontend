@@ -20,7 +20,8 @@ export default class App extends React.Component {
       beers: [],
       beer: null,
       isEdit: false,
-      newBeer: false
+      newBeer: false,
+      abvFilter: 15
     }
     this.handleAddBeer = this.handleAddBeer.bind(this)
     this.getBeers = this.getBeers.bind(this)
@@ -28,6 +29,7 @@ export default class App extends React.Component {
     this.deleteBeer = this.deleteBeer.bind(this)
     this.handleUpdateBeer = this.handleUpdateBeer.bind(this)
     this.toggleNewForm = this.toggleNewForm.bind(this)
+    this.handleSlider = this.handleSlider.bind(this)
   }
   componentDidMount() {
     this.getBeers()
@@ -42,6 +44,12 @@ export default class App extends React.Component {
     this.setState({
       beers: copyBeers,
       isEdit: false
+    })
+  }
+  handleSlider(value) {
+    console.log(value);
+    this.setState({
+      abvFilter: this.refs.slider.value
     })
   }
   getBeer(beer) {
@@ -83,10 +91,19 @@ export default class App extends React.Component {
       }
   }
 
+
   render() {
+    console.log(this.state.abvFilter);
     return(
       <>
       <Header />
+      <div className="d-flex justify-content-center my-4">
+          <form className="range-field" id="abv-slider" >
+              <label htmlFor="abvFilter">ABV</label>
+              <input id="slider11" className="border-0" name="abvFilter" type="range" min="0" max="15" step="0.1" ref="slider" value={this.state.abvFilter} onChange={this.handleSlider}/><span id="abv-filter">{this.state.abvFilter}</span>
+          </form>
+          <span className="font-weight-bold text-primary ml-2 mt-1 valueSpan"></span>
+        </div>
       <div className='container'>
 
       <button id="add-button" className="btn btn-warning" onClick={()=> this.toggleNewForm()}>Add New Beer</button>
@@ -99,6 +116,7 @@ export default class App extends React.Component {
         {
           this.state.beers.map((beer, i) => {
             return(
+
               <div className=""
                 key={beer._id}
                 onMouseOver={() => {
@@ -110,7 +128,10 @@ export default class App extends React.Component {
               beer={beer}
               deleteBeer={this.deleteBeer}
               baseURL={baseURL}
-              handleUpdateBeer={this.handleUpdateBeer}/></div>
+              handleUpdateBeer={this.handleUpdateBeer}
+              handleSlider={this.handleSlider}
+              abvFilter={this.state.abvFilter}
+              /></div>
             )
           })
         }

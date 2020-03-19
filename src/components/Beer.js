@@ -20,7 +20,12 @@ class Beer extends React.Component {
     }
   render() {
     return(
+      <div>
+      {
+        parseInt(this.props.abvFilter) >= parseInt(this.props.beer.abv)
+        ?
       <div className="card">
+
 
             <img className="card-img-top" src={this.props.beer.img}></img>
           <div className="card-body">
@@ -61,6 +66,10 @@ class Beer extends React.Component {
           }
           </div>
       </div>
+      : null
+    }
+      </div>
+
     )
   }
 }
