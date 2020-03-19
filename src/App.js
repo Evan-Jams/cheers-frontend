@@ -96,47 +96,47 @@ export default class App extends React.Component {
     console.log(this.state.abvFilter);
     return(
       <>
-      <Header />
-      <div className="d-flex justify-content-center my-4">
-          <form className="range-field" id="abv-slider" >
-              <label htmlFor="abvFilter">ABV</label>
-              <input id="slider11" className="border-0" name="abvFilter" type="range" min="0" max="15" step="0.1" ref="slider" value={this.state.abvFilter} onChange={this.handleSlider}/><span id="abv-filter">{this.state.abvFilter}</span>
-          </form>
-          <span className="font-weight-bold text-primary ml-2 mt-1 valueSpan"></span>
-        </div>
-      <div className='container'>
+          <Header />
+          <div className="d-flex justify-content-center my-4">
+              <form className="range-field" id="abv-slider" >
+                  <label htmlFor="abvFilter">ABV</label>
+                  <input id="slider11" className="border-0" name="abvFilter" type="range" min="0" max="15" step="0.1" ref="slider" value={this.state.abvFilter} onChange={this.handleSlider}/><span id="abv-filter">{this.state.abvFilter}</span>
+              </form>
+              <span className="font-weight-bold text-primary ml-2 mt-1 valueSpan"></span>
+          </div>
+          <div className='container'>
 
-      <button id="add-button" className="btn btn-warning" onClick={()=> this.toggleNewForm()}>Add New Beer</button>
-      {
-          this.state.newBeer
-          ? <NewBeer toggleNewForm={this.toggleNewForm} baseURL={baseURL} handleAddBeer={this.handleAddBeer}/>
-          : null
-      }
-        <div className="card-list">
-        {
-          this.state.beers.map((beer, i) => {
-            return(
+          <button id="add-button" className="btn btn-warning" onClick={()=> this.toggleNewForm()}>Add New Beer</button>
+          {
+              this.state.newBeer
+              ? <NewBeer toggleNewForm={this.toggleNewForm} baseURL={baseURL} handleAddBeer={this.handleAddBeer}/>
+              : null
+          }
+            <div className="card-list">
+            {
+              this.state.beers.map((beer, i) => {
+                return(
 
-              <div className=""
-                key={beer._id}
-                onMouseOver={() => {
-                  this.getBeer(beer)
-                }}
-              ><Beer
-              key={i}
-              beers={this.state.beers}
-              beer={beer}
-              deleteBeer={this.deleteBeer}
-              baseURL={baseURL}
-              handleUpdateBeer={this.handleUpdateBeer}
-              handleSlider={this.handleSlider}
-              abvFilter={this.state.abvFilter}
-              /></div>
-            )
-          })
-        }
-        </div>
-      </div>
+                  <div className=""
+                    key={beer._id}
+                    onMouseOver={() => {
+                      this.getBeer(beer)
+                    }}
+                  ><Beer
+                  key={i}
+                  beers={this.state.beers}
+                  beer={beer}
+                  deleteBeer={this.deleteBeer}
+                  baseURL={baseURL}
+                  handleUpdateBeer={this.handleUpdateBeer}
+                  handleSlider={this.handleSlider}
+                  abvFilter={this.state.abvFilter}
+                  /></div>
+                )
+              })
+            }
+            </div>
+          </div>
       </>
     )
   }

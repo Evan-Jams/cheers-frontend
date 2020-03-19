@@ -25,14 +25,14 @@ class Beer extends React.Component {
         parseInt(this.props.abvFilter) >= parseInt(this.props.beer.abv)
         ?
       <div className="card">
-
-
             <img className="card-img-top" src={this.props.beer.img}></img>
-          <div className="card-body">
-          <div className="card-header">
-          <h5>{this.props.beer.name} <span id="abv">(ABV: {this.props.beer.abv} %)</span></h5>
+            <div className="card-body">
+            <div className="card-header">
+            <h5>{this.props.beer.name} <span id="abv-title">(ABV: {this.props.beer.abv} %)</span></h5>
 
-          <h6 ><a href={this.props.beer.url} target="_blank" rel="noopener noreferrer">{this.props.beer.brewery} brewery</a></h6>
+            <h6>
+                <a href={this.props.beer.url} target="_blank" rel="noopener noreferrer">{this.props.beer.brewery} brewery</a>
+            </h6>
 
           </div>
             <span onClick={()=>this.toggleShowMore()}className="show-link">
@@ -53,15 +53,16 @@ class Beer extends React.Component {
                     <button className="btn btn-danger" onClick={()=> this.props.deleteBeer(this.props.beer._id)}>Delete</button>
                   </div>
               </div>
-
               : null
             }
 
           {
               this.state.showForm
-              ? <UpdateBeer baseURL={this.props.baseURL} handleUpdateBeer={this.props.handleUpdateBeer} beer={this.props.beer}
-              beers={this.props.beers}
-              toggleShowForm={this.toggleShowForm} />
+              ? <UpdateBeer baseURL={this.props.baseURL}
+                            handleUpdateBeer={this.props.handleUpdateBeer}
+                            beer={this.props.beer}
+                            beers={this.props.beers}
+                            toggleShowForm={this.toggleShowForm} />
               : null
           }
           </div>
